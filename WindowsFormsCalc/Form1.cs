@@ -24,43 +24,7 @@ namespace WindowsFormsCalc
         {
             InitializeComponent();
         }
-
-        private void btn_plus_Click(object sender, EventArgs e)                  // +
-        {
-            sign_operation = "+";
-            number_1 = Convert.ToDouble(textBox.Text);
-            //textBox.Text = "";
-            textBox_history.Text = number_1 + " + ";
-            zamena = true;
-        }
-
-        private void btn_minus_Click(object sender, EventArgs e)                 // -
-        {
-            sign_operation = "-";
-            number_1 = Convert.ToDouble(textBox.Text);
-            //textBox.Text = "";
-            textBox_history.Text = number_1 + " - ";
-            zamena = true;
-        }
-
-        private void btn_umnozhit_Click(object sender, EventArgs e)              // *
-        {
-            sign_operation = "*";
-            number_1 = Convert.ToDouble(textBox.Text);
-            //textBox.Text = "";
-            textBox_history.Text = number_1 + " * ";
-            zamena = true;
-        }
-
-        private void btn_delit_Click(object sender, EventArgs e)                 // /
-        {
-            sign_operation = "/";
-            number_1 = Convert.ToDouble(textBox.Text);
-            //textBox.Text = "";
-            textBox_history.Text = number_1 + " / ";
-            zamena = true;
-        }
-
+        
         // происходит действие по нажатию на равно
         private void btn_rovno_Click(object sender, EventArgs e)                 // = 
         {
@@ -97,7 +61,7 @@ namespace WindowsFormsCalc
         }
 
         // кнопка "С" стерает все числа                                             
-        private void btn_clear_Click(object sender, EventArgs e)                   // C
+        private void btn_clear_Click(object sender, EventArgs e)                      // C
         {
             number_1 = 0;
             number_2 = 0;
@@ -106,147 +70,7 @@ namespace WindowsFormsCalc
             textBox_history.Text = "";
             zamena = false;
         }
-        // нажатие на кнопку "1"
-        private void button1_Click(object sender, EventArgs e)                     // 1
-        {
-            const string cifra = "1";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_2_Click(object sender, EventArgs e)                       // 2
-        {
-            const string cifra = "2";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_3_Click(object sender, EventArgs e)                        // 3
-        {
-            const string cifra = "3";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_4_Click(object sender, EventArgs e)                         // 4
-        {
-            const string cifra = "4";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_5_Click(object sender, EventArgs e)                         // 5
-        {
-            const string cifra = "5";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_6_Click(object sender, EventArgs e)                         // 6
-        {
-            const string cifra = "6";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_7_Click(object sender, EventArgs e)                         // 7
-        {
-            const string cifra = "7";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_8_Click(object sender, EventArgs e)                         // 8
-        {
-            const string cifra = "8";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_9_Click(object sender, EventArgs e)                         // 9
-        {
-            const string cifra = "9";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
-        private void btn_0_Click(object sender, EventArgs e)                          // 0
-        {
-            const string cifra = "0";
-            if (textBox.Text == "0")
-                textBox.Text = cifra;
-            else if (zamena == true)
-            {
-                zamena = false;
-                textBox.Text = cifra;
-            }
-            else
-                textBox.Text = textBox.Text + cifra;
-        }
-
+  
         private void btn_zapita_Click(object sender, EventArgs e)                     // ,
         {
             if (!textBox.Text.Contains(","))
@@ -268,6 +92,30 @@ namespace WindowsFormsCalc
             {
                 e.Handled = true;
             }
+        }
+
+        // крутой метод для нажатия любой цифры
+        private void button_cifra_Click(object sender, EventArgs e)
+        {
+            string cifra = (sender as Button).Text;
+            if (textBox.Text == "0")
+                textBox.Text = cifra;
+            else if (zamena == true)
+            {
+                zamena = false;
+                textBox.Text = cifra;
+            }
+            else
+                textBox.Text = textBox.Text + cifra;
+        }
+
+        // крутой метод для нажатия знака операции
+        private void btn_sign_operations_Click(object sender, EventArgs e)
+        {
+            sign_operation = (sender as Button).Text;
+            number_1 = Convert.ToDouble(textBox.Text);
+            textBox_history.Text = number_1 + sign_operation;
+            zamena = true;
         }
     }
 }
