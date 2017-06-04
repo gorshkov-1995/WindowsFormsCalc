@@ -244,7 +244,7 @@
             // 
             // btn_rovno
             // 
-            this.btn_rovno.BackColor = System.Drawing.Color.LawnGreen;
+            this.btn_rovno.BackColor = System.Drawing.Color.Firebrick;
             this.btn_rovno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_rovno.Location = new System.Drawing.Point(176, 203);
             this.btn_rovno.Name = "btn_rovno";
